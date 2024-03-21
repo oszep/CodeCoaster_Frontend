@@ -1,7 +1,46 @@
-.loginContainer {
+.login-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color:var(--main_color);
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 20%;
+    background-color: pink;
+}
+
+.aulify-games-logo {
+    height: 100%;
+    width: auto;
+    align-self: center;
+    vertical-align: middle;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    width: 100%;
+    height: 50%;
+}
+
+.login-image {
+    height: 100%;
+    width: auto;
+}
+
+.button-container{
+    width: 100%;
+    display:flex;
+    background-color: aquamarine;
+}
+
+.loginButton {
+    
 }
