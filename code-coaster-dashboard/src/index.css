@@ -3,3 +3,7 @@
     --darker_color: #5C25B7;
     --highlight: #FFCC44;
 }
+
+*{
+    font-family: 'Crossten', sans-serif;
+  }
