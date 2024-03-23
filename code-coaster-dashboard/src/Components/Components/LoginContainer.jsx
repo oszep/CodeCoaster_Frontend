@@ -1,13 +1,21 @@
 import "./LoginContainer.css";
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
+
 
 function LoginContainer() {
+    const navigate = useNavigate();
     const [showLoginForm, setShowLoginForm] = useState(false);
 
     const handleLoginClick = () => {
         setShowLoginForm(true);
     };
 
+    
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        navigate("/dashboard");
+    };
     return (
         <>
             <div className="login-container">
@@ -24,7 +32,7 @@ function LoginContainer() {
                         <form className="loginForm">
                             <input type="text" placeholder="Email" required />
                             <input type="password" placeholder="Contraseña" required />
-                            <button type="submit">Continuar</button>
+                            <button type="submit" onClick={handleLoginSubmit}>Continuar</button>
                         </form>
                     )}
                 </div>
