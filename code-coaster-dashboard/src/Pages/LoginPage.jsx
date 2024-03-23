@@ -1,4 +1,4 @@
-import LoginContainer from "../Components/LoginContainer/LoginContainer"
+import LoginContainer from "../Components/Components/LoginContainer"
 
 function LoginPage() {
     return (

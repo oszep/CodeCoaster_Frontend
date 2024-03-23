@@ -54,15 +54,15 @@ body {
 
 .loginButton {
     justify-content: center;
-    width: 10%;
-    height: 30%;
+    width: 15%;
+    height: 40%;
     border-radius: 10px;
     border: 3px solid transparent;
     background-color: var(--darker_color);
     cursor: pointer;
     color: white;
     font-weight: bold;
-    font-size: 1.1vw;
+    font-size: 1.2vw;
 }
 
 .loginButton:hover {
@@ -84,7 +84,7 @@ body {
     border-radius: 5px;
     border: none;
     width: 12vw;
-    height: 10vh;
+    height: 6vh;
 }
 
 .loginForm button {
@@ -92,6 +92,7 @@ body {
     border-radius: 5px;
     border: none;
     width: 8vw;
+    height: 6vh;
     background-color: var(--darker_color);
     color: white;
     cursor: pointer;

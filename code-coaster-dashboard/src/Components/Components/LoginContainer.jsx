@@ -1,5 +1,5 @@
 import "./LoginContainer.css";
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 function LoginContainer() {
     const [showLoginForm, setShowLoginForm] = useState(false);
@@ -30,7 +30,7 @@ function LoginContainer() {
                 </div>
             </div>
         </>
-    );
+    )
 }
 
 export default LoginContainer;
