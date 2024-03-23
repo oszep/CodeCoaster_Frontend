@@ -20,7 +20,9 @@ function LoginContainer() {
         <>
             <div className="login-container">
                 <div className="header">
-                    <img className="aulify-games-logo" src="src/UI/aulify-games-logo.png" alt="Aulify Games Logo" />
+                    <div className="aulify-games-logo-container">
+                        <img className="aulify-games-logo" src="src/UI/aulify-games-logo.png" alt="Aulify Games Logo" />
+                    </div>
                 </div>
                 <div className="logo-container">
                     <img className="login-image" src="src/UI/code-coaster-logo.png" alt="Code Coaster Logo" />

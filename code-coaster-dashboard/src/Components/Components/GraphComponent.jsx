@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+/* te amo recharts estás bien requetepadrisimo */
 
 function GraphComponent() {
     /*Estos serán datos que jalaremos del api, pero por lo mientras, los dejamos así, sabe como, problema del futuro salu3*/

@@ -1,12 +1,35 @@
 import './DashboardContainer.css'
 import React, { useState } from 'react'
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { useNavigate } from 'react-router-dom'
 import GraphComponent from './GraphComponent';
 
 function DashboardContainer() {
-      
-    /* deberá haber un fetch que obtenga los usuarios, guardar en algo (?)  */
+    
+    const navigate = useNavigate();
+    const handleLogOut = (e) => {
+        e.preventDefault();
+        navigate('/');
+    }
 
+    /* deberá haber un fetch que obtenga los usuarios, guardar en algo (?)  */
+    /* namas pa probar, hagamos un array de objetos con los datos de los usuarios */
+    const bestUsers = [
+        {name: 'Dultez'},
+        {name: 'Oskrin'},
+        {name: 'Desies'},
+        {name: 'Brenda'},
+        {name: 'Kikiriki'}
+    ]
+
+    const viciousUsers = [
+        {name: 'Ya'},
+        {name: 'no'},
+        {name: 'se me'},
+        {name: 'ocurren'},
+        {name: 'nombres'}
+    ]
+
+    /*supongamos que nuestro endpoint tiene una consulta así bien chida que saca las 3 primeras*/
     return(
         <>
             <div className="dashboard-container">
@@ -15,7 +38,7 @@ function DashboardContainer() {
                         <img className="aulify-games-logo" src="src/UI/aulify-games-logo.png" alt="Aulify Games Logo" />
                     </div>
                     <div className="logout-button-container">
-                        <button className="logout-button">Cerrar sesión</button>
+                        <button className="logout-button" onClick={handleLogOut}>Cerrar sesión</button>
                     </div>
                 </div>
                 <div className="dashboard-body">
@@ -35,11 +58,9 @@ function DashboardContainer() {
                                 </div>
                                 <div className="users-container">
                                     {/* y aquí una cosa que itere en las primeras 5 posiciones, un map o algo así */}
-                                    <h4>Usuario 1</h4>
-                                    <h4>Usuario 2</h4>
-                                    <h4>Usuario 3</h4>
-                                    <h4>Usuario 4</h4>
-                                    <h4>Usuario 5</h4>
+                                    {bestUsers.map(user => {
+                                        return <h4>{user.name}</h4>
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -57,11 +78,9 @@ function DashboardContainer() {
                                         <h4>#5</h4>
                                     </div>
                                     <div className="users-container">
-                                        <h4>Usuario 1</h4>
-                                        <h4>Usuario 2</h4>
-                                        <h4>Usuario 3</h4>
-                                        <h4>Usuario 4</h4>
-                                        <h4>Usuario 5</h4>
+                                        {viciousUsers.map(user => {
+                                            return <h4>{user.name}</h4>
+                                        })}
                                 </div>
                             </div>
                         </div>
