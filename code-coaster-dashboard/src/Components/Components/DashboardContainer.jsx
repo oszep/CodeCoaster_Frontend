@@ -8,7 +8,8 @@ function DashboardContainer() {
     const navigate = useNavigate();
     const handleLogOut = (e) => {
         e.preventDefault();
-        navigate('/');
+        localStorage.removeItem('token')
+        navigate('/', {replace: true})
     }
 
     /* deberá haber un fetch que obtenga los usuarios, guardar en algo (?)  */
@@ -40,6 +41,10 @@ function DashboardContainer() {
                     <div className="logout-button-container">
                         <button className="logout-button" onClick={handleLogOut}>Cerrar sesión</button>
                     </div>
+                </div>
+                <div className="welcome-text">
+                    <h1>Bienvenido,</h1>
+                    <h1 className="header-highlight">aqui va el nombre del usuario</h1>
                 </div>
                 <div className="dashboard-body">
                     <div className="stats-cards">

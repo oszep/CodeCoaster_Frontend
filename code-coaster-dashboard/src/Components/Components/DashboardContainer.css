@@ -138,3 +138,10 @@ body {
     color: var(--highlight);
 }
 
+
+.welcome-text {
+    color: white;
+    display: flex;
+    gap: 1vh;
+    justify-content: flex-start;
+}
