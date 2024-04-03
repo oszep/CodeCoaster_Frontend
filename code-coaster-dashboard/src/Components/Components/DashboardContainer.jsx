@@ -1,34 +1,38 @@
 import './DashboardContainer.css'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import GraphComponent from './GraphComponent';
 
 function DashboardContainer() {
-    
     const navigate = useNavigate();
+    const [timeUsers, setTimeUsers] = useState([]);
+    const [levelUsers, setLevelUsers] = useState([]);
+
+useEffect(() => {
+    cargarMetricas();
+}, [])
+
     const handleLogOut = (e) => {
         e.preventDefault();
         localStorage.removeItem('token')
         navigate('/', {replace: true})
     }
 
-    /* deberá haber un fetch que obtenga los usuarios, guardar en algo (?)  */
-    /* namas pa probar, hagamos un array de objetos con los datos de los usuarios */
-    const bestUsers = [
-        {name: 'Dultez'},
-        {name: 'Oskrin'},
-        {name: 'Desies'},
-        {name: 'Brenda'},
-        {name: 'Kikiriki'}
-    ]
+    /* Mediante cargarMetrica se realiza un fetch que obtiene los usuarios ;) */
+    const cargarMetricas = async () => {
+        try {
+            const responseTime = await fetch('http://localhost:3000/metricas/nivel');
+            const dataTime = await responseTime.json();
+            setTimeUsers(dataTime);
 
-    const viciousUsers = [
-        {name: 'Ya'},
-        {name: 'no'},
-        {name: 'se me'},
-        {name: 'ocurren'},
-        {name: 'nombres'}
-    ]
+            const responseLevel = await fetch('http://localhost:3000/metricas/tiempo');
+            const dataLevel = await responseLevel.json();
+            setLevelUsers(dataLevel);
+        }
+        catch (error) {
+            console.log(error)
+        }
+    };
 
     /*supongamos que nuestro endpoint tiene una consulta así bien chida que saca las 3 primeras*/
     return(
@@ -62,10 +66,9 @@ function DashboardContainer() {
                                     <h4>#5</h4>
                                 </div>
                                 <div className="users-container">
-                                    {/* y aquí una cosa que itere en las primeras 5 posiciones, un map o algo así */}
-                                    {bestUsers.map(user => {
-                                        return <h4>{user.name}</h4>
-                                    })}
+                                    {levelUsers.slice(0, 5).map((user, index) => (
+                                        <h4 key={index}>{user.usuario}</h4>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -81,11 +84,11 @@ function DashboardContainer() {
                                         <h4>#3</h4>
                                         <h4>#4</h4>
                                         <h4>#5</h4>
-                                    </div>
-                                    <div className="users-container">
-                                        {viciousUsers.map(user => {
-                                            return <h4>{user.name}</h4>
-                                        })}
+                                </div>
+                                <div className="users-container">
+                                    {timeUsers.slice(0, 5).map((user, index) => (
+                                        <h4 key={index}>{user.usuario}</h4>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -96,19 +99,11 @@ function DashboardContainer() {
                             </div>
                             <div className="stats-card-body">
                                 <GraphComponent/>
-                        </div>
-
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                
             </div>
-        
-        
-        
         </>
     )
 }
