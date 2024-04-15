@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 0vh;
     height: 100vh;
     background-color: var(--main_color);
 }
@@ -19,19 +20,19 @@ body {
 }
 
 .aulify-games-logo-container {
-    margin-top: 10vh;
+    margin-top: 15vh;
     display: flex;
     justify-content: flex-start;
     height:100%;
 }
 
-.aulify-games-logo {
+.aulify-games-logo-dashboard {
     height: 150%;
     width: auto;
     align-self: center;
     vertical-align: middle;
-    margin-top: -24vh;
-    margin-left: -2vh;
+    margin-top: -40vh;
+    margin-left: -4vh;
 }
 
 .logout-button-container{
@@ -47,16 +48,19 @@ body {
     background-color: #fff;
     font-weight: bold;
     color: var(--main_color);
-    border: none;
+    border: 3px solid transparent;
     border-radius: 12px;
-    height: auto;
+    cursor: pointer;
+    height: 4.5vh;
     width: auto;
-    margin-right: 4vh;
+    margin-right: 8vh;
+    margin-top: -5vh;
 }
 
 .logout-button:hover {
     background-color: var(--main_color);
     color: #fff;
+    border-color: var(--highlight);
 }
 
 .logout-button.clicked{
@@ -126,22 +130,16 @@ body {
     align-items: center;
     width: 28%; 
     height: 100%;
+    text-align: center;
 }
 
 .places-container h4,
 .users-container h4 {
     font-size: 1.5vw;
-    margin: 0; 
+    margin: 0;
+    padding: 2px
 }
 
 .places-container{
     color: var(--highlight);
-}
-
-
-.welcome-text {
-    color: white;
-    display: flex;
-    gap: 1vh;
-    justify-content: flex-start;
 }

@@ -40,15 +40,11 @@ useEffect(() => {
             <div className="dashboard-container">
                 <div className="header">
                     <div className="aulify-games-logo-container">
-                        <img className="aulify-games-logo" src="src/UI/aulify-games-logo.png" alt="Aulify Games Logo" />
+                        <img className="aulify-games-logo-dashboard" src="src/UI/aulify-games-logo.png" alt="Aulify Games Logo" />
                     </div>
                     <div className="logout-button-container">
                         <button className="logout-button" onClick={handleLogOut}>Cerrar sesión</button>
                     </div>
-                </div>
-                <div className="welcome-text">
-                    <h1>Bienvenido,</h1>
-                    <h1 className="header-highlight">aqui va el nombre del usuario</h1>
                 </div>
                 <div className="dashboard-body">
                     <div className="stats-cards">

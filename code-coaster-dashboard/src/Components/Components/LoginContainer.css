@@ -11,6 +11,8 @@ body {
     margin-top: 0vh;
     height: 100vh;
     background-color: var(--main_color);
+    position: relative;
+    overflow: hidden;
 }
 
 .header {
@@ -30,8 +32,8 @@ body {
     width: auto;
     align-self: center;
     vertical-align: middle;
-    margin-top: -24vh;
-    margin-left: -2vh;
+    margin-top: -50vh;
+    margin-left: -4vh;
 }
 
 .logo-container {
@@ -65,7 +67,7 @@ body {
     cursor: pointer;
     color: white;
     font-weight: bold;
-    font-size: 1.2vw;
+    font-size: 1.4vw;
     box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.25);
 }
 
@@ -81,7 +83,8 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10px; 
+    width: 100%;
 }
 
 .loginForm input[type="text"], .loginForm input[type="password"] {
@@ -110,10 +113,20 @@ body {
 }
 
 .errorMessage {
-    border: 1px solid rgb(200, 0, 0);
-    border-radius: 5px;
-    padding: 15px;
+    width: auto; 
+    height: auto; 
     background-color: rgb(200, 0, 0);
     color: white;
+    padding: 4px 4px; 
+    text-align: center;
+    border-radius: 4px;
+    font-size: .8vw;
+}
 
+.inputField {
+    width: 12vw;
+    height: 6vh;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
 }
