@@ -69,7 +69,7 @@ useEffect(() => {
                         <div className="stats-card">
                             <div className="stats-card-header">
                                 <h3 className="header-highlight">Ranking</h3>
-                                <h3>de jugadores </h3>
+                                <h3>de nivel </h3>
                             </div>
                             <div className="stats-card-body">
                                 <div className="places-container">
