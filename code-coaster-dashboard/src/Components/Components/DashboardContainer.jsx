@@ -21,18 +21,36 @@ useEffect(() => {
     /* Mediante cargarMetrica se realiza un fetch que obtiene los usuarios ;) */
     const cargarMetricas = async () => {
         try {
-            const responseTime = await fetch('http://localhost:3000/metricas/nivel');
+            // Retrieve the token from localStorage
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.log('No token found');
+                return; // Optionally handle the absence of token more explicitly
+            }
+    
+            // Set up the headers to include the token
+            const headers = {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            };
+    
+            // Fetching time metrics with the Authorization header
+            const responseTime = await fetch('http://localhost:3000/metricas/tiempo', { headers });
+            if (!responseTime.ok) throw new Error('Failed to fetch time metrics');
             const dataTime = await responseTime.json();
             setTimeUsers(dataTime);
-
-            const responseLevel = await fetch('http://localhost:3000/metricas/tiempo');
+    
+            // Fetching level metrics with the Authorization header
+            const responseLevel = await fetch('http://localhost:3000/metricas/nivel', { headers });
+            if (!responseLevel.ok) throw new Error('Failed to fetch level metrics');
             const dataLevel = await responseLevel.json();
             setLevelUsers(dataLevel);
         }
         catch (error) {
-            console.log(error)
+            console.error('Error fetching metrics:', error);
         }
     };
+    
 
     /*supongamos que nuestro endpoint tiene una consulta así bien chida que saca las 3 primeras*/
     return(
