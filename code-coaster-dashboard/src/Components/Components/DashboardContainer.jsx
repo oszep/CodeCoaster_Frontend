@@ -108,7 +108,7 @@ useEffect(() => {
                         </div>
                         <div className="stats-card">
                             <div className="stats-card-header">
-                                <h3>Horas de juego</h3>
+                                <h3>Minutos de juego</h3>
                                 <h3 className="header-highlight">semanal</h3>
                             </div>
                             <div className="stats-card-body">
