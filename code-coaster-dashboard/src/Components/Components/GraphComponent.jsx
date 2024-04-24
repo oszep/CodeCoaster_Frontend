@@ -27,13 +27,13 @@ function GraphComponent() {
     useEffect(() => {
       const fetchData = async () => {
         const newData = [
-          { name: 'Lunes', horas: await getHours(2) },
-          { name: 'Martes', horas: await getHours(3) },
-          { name: 'Miércoles', horas: await getHours(4) },
-          { name: 'Jueves', horas: await getHours(5) },
-          { name: 'Viernes', horas: await getHours(6) },
-          { name: 'Sábado', horas: await getHours(7) },
-          { name: 'Domingo', horas: await getHours(1) },
+          { name: 'Lunes', minutos: await getHours(2) },
+          { name: 'Martes', minutos: await getHours(3) },
+          { name: 'Miércoles', minutos: await getHours(4) },
+          { name: 'Jueves', minutos: await getHours(5) },
+          { name: 'Viernes', minutos: await getHours(6) },
+          { name: 'Sábado', minutos: await getHours(7) },
+          { name: 'Domingo', minutos: await getHours(1) },
         ];
         setData(newData);
       };
@@ -67,7 +67,7 @@ function GraphComponent() {
           >
             <XAxis dataKey="name" tickFormatter={(value) => dayMap[value]} stroke="#ffffff"/>
             <Tooltip />
-            <Line type="monotone" dataKey="horas" stroke="var(--highlight)" activeDot={{ r: 8 }} />
+            <Line type="monotone" dataKey="minutos" stroke="var(--highlight)" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
       </>
