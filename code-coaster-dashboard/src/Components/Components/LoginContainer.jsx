@@ -16,7 +16,7 @@ const LoginContainer = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
 
 function getHours(day) {
-  return fetch(`http://localhost:3000/metricas/tiempo/${day}`, {
+  return fetch(`https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/metricas/tiempo/${day}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

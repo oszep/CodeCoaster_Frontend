@@ -35,13 +35,13 @@ useEffect(() => {
             };
     
             // Fetching time metrics with the Authorization header
-            const responseTime = await fetch('http://localhost:3000/metricas/tiempo', { headers });
+            const responseTime = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/metricas/tiempo', { headers });
             if (!responseTime.ok) throw new Error('Failed to fetch time metrics');
             const dataTime = await responseTime.json();
             setTimeUsers(dataTime);
     
             // Fetching level metrics with the Authorization header
-            const responseLevel = await fetch('http://localhost:3000/metricas/nivel', { headers });
+            const responseLevel = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/metricas/nivel', { headers });
             if (!responseLevel.ok) throw new Error('Failed to fetch level metrics');
             const dataLevel = await responseLevel.json();
             setLevelUsers(dataLevel);
