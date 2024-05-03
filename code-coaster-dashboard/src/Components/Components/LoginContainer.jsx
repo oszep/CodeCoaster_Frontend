@@ -16,7 +16,7 @@ const LoginContainer = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage('');
-        const response = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/login', {
+        const response = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/login/admin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,9 +28,9 @@ const LoginContainer = () => {
         if (data.token) {
             localStorage.setItem('token', data.token);
             navigate("/dashboard");
-        }
+        } 
         else {
-            setErrorMessage("Usuario o contraseña incorrectos");
+            setErrorMessage("Error de autenticación: Usuario no permitido o contraseña incorrecta.");
         }
     };
 
