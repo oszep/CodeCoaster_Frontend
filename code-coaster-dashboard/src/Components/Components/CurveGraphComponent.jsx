@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 import { useState, useEffect } from 'react';
 
 function getHours(day) {
@@ -66,6 +66,7 @@ function GraphComponent() {
             }}
           >
             <XAxis dataKey="name" tickFormatter={(value) => dayMap[value]} stroke="#ffffff"/>
+            <YAxis stroke="#ffffff"/>
             <Tooltip />
             <Line type="monotone" dataKey="minutos" stroke="var(--highlight)" activeDot={{ r: 8 }} />
           </LineChart>

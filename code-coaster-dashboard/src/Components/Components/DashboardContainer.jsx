@@ -1,7 +1,9 @@
 import './DashboardContainer.css'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import GraphComponent from './GraphComponent';
+import CurveGraphComponent from './CurveGraphComponent';
+import PieGraph from './PieChartComponent';
+import MonthlyMetricsChart from './MonthlyMetricsChart';
 
 function DashboardContainer() {
     const navigate = useNavigate();
@@ -51,8 +53,6 @@ useEffect(() => {
         }
     };
     
-
-    /*supongamos que nuestro endpoint tiene una consulta así bien chida que saca las 3 primeras*/
     return(
         <>
             <div className="dashboard-container">
@@ -65,56 +65,81 @@ useEffect(() => {
                     </div>
                 </div>
                 <div className="dashboard-body">
-                    <div className="stats-cards">
-                        <div className="stats-card">
-                            <div className="stats-card-header">
-                                <h3 className="header-highlight">Ranking</h3>
-                                <h3>de nivel </h3>
-                            </div>
-                            <div className="stats-card-body">
-                                <div className="places-container">
-                                    <h4>#1</h4>
-                                    <h4>#2</h4>
-                                    <h4>#3</h4>
-                                    <h4>#4</h4>
-                                    <h4>#5</h4>
+                    <div className="dashboard-body-upper">
+                        <div className="stats-cards">
+                            <div className="stats-card">
+                                <div className="stats-card-header">
+                                    <h3 className="header-highlight">Ranking</h3>
+                                    <h3>de nivel </h3>
                                 </div>
-                                <div className="users-container">
-                                    {levelUsers.slice(0, 5).map((user, index) => (
-                                        <h4 key={index}>{user.usuario}</h4>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="stats-card">
-                            <div className="stats-card-header">
-                                <h3 className="header-highlight">Ranking</h3>
-                                <h3>de horas jugadas </h3>
-                            </div>
-                            <div className="stats-card-body">
-                                <div className="places-container">
+                                <div className="stats-card-body">
+                                    <div className="places-container">
                                         <h4>#1</h4>
                                         <h4>#2</h4>
                                         <h4>#3</h4>
                                         <h4>#4</h4>
                                         <h4>#5</h4>
+                                    </div>
+                                    <div className="users-container">
+                                        {levelUsers.slice(0, 5).map((user, index) => (
+                                            <h4 key={index}>{user.usuario}</h4>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div className="users-container">
-                                    {timeUsers.slice(0, 5).map((user, index) => (
-                                        <h4 key={index}>{user.usuario}</h4>
-                                    ))}
+                            </div>
+                            <div className="stats-card">
+                                <div className="stats-card-header">
+                                    <h3 className="header-highlight">Ranking</h3>
+                                    <h3>de horas jugadas </h3>
+                                </div>
+                                <div className="stats-card-body">
+                                    <div className="places-container">
+                                            <h4>#1</h4>
+                                            <h4>#2</h4>
+                                            <h4>#3</h4>
+                                            <h4>#4</h4>
+                                            <h4>#5</h4>
+                                    </div>
+                                    <div className="users-container">
+                                        {timeUsers.slice(0, 5).map((user, index) => (
+                                            <h4 key={index}>{user.usuario}</h4>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="stats-card">
-                            <div className="stats-card-header">
-                                <h3>Minutos de juego</h3>
-                                <h3 className="header-highlight">semanal</h3>
+                    </div>
+                    <div className="dashboard-body-lower">
+                        <div className="stats-cards">
+                            <div className="stats-card">
+                                    <div className="stats-card-header">
+                                        <h3>Minutos de juego</h3>
+                                        <h3 className="header-highlight">semanal</h3>
+                                    </div>
+                                    <div className="stats-card-body">
+                                        <CurveGraphComponent/>
+                                    </div>
                             </div>
-                            <div className="stats-card-body">
-                                <GraphComponent/>
+                            <div className="stats-card">
+                                <div className="stats-card-header">
+                                    <h3>Usuarios por</h3>
+                                    <h3 className="header-highlight"> cuenta</h3>
+                                </div>
+                                <div className="stats-card-body">
+                                    <PieGraph/>
+                                </div>
+                            </div>
+                            <div className="stats-card">
+                                <div className="stats-card-header">
+                                    <h3>Horas de juego</h3>
+                                    <h3 className="header-highlight">mensual</h3>
+                                </div>
+                                <div className="stats-card-body">
+                                    <MonthlyMetricsChart/>
+                                </div>
                             </div>
                         </div>
+                                        
                     </div>
                 </div>
             </div>
