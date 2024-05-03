@@ -48,23 +48,22 @@ function MonthlyMetricsChart() {
     }, []);
 
     return (
-      <ResponsiveContainer width="100%" height={240}>
+      <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
+          width={500}
+          height={300}
           data={data}
           margin={{
-            top: 20,
-            right: 30,
-            bottom: 20,
-            left: 20,
+            top: 15,
+            right: 40,
+            bottom: 15,
+            left: 0,
           }}
         >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="name" />
-          <YAxis label={{ value: 'Horas', angle: -90, position: 'insideLeft' }} />
+          <XAxis dataKey="name" tick={{ fill: '#FFFFFF', fontSize: 12 }} stroke="#ffffff"/>
+          <YAxis stroke='#ffffff'/>
           <Tooltip />
-          <Legend />
-          <Bar dataKey="horas" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="horas" stroke="#ff7300" />
+          <Line type="monotone" dataKey="horas" stroke="var(--highlight)" activeDot={{ r: 8 }} />
         </ComposedChart>
       </ResponsiveContainer>
     );

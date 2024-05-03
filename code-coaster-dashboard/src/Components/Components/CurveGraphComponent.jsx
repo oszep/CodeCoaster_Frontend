@@ -61,7 +61,7 @@ function GraphComponent() {
             margin={{
               top: 15,
               right: 40,
-              left: 40,
+              left: 0,
               bottom: 15,
             }}
           >

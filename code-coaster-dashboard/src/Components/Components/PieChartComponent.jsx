@@ -13,8 +13,8 @@ function PieGraph() {
                 const dataCodecoaster = await responseCodecoaster.json();
                 
                 const graphData = [
-                    { name: 'Aulify', value: dataAulify.cantidad },
-                    { name: 'CodeCoaster', value: dataCodecoaster.cantidad }
+                    { name: 'Aulify', value: dataAulify.cantidad, fill: '#FFFFFF'},
+                    { name: 'CodeCoaster', value: dataCodecoaster.cantidad, fill: 'var(--highlight)'}
                 ];
 
                 setData(graphData);
@@ -35,8 +35,8 @@ function PieGraph() {
                     data={data}
                     cx="50%"
                     cy="50%"
-                    outerRadius={100}
-                    fill="#8884d8"
+                    strokeWidth={0}
+                    fill="transparent"
                     label
                 />
                 <Tooltip />
