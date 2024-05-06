@@ -22,7 +22,7 @@ function getMonthData(month) {
   .then(response => response.json())
   .then(data => {
     const timeSum = data[0]['SUM(tiempo)'];
-    return timeSum / 60 || 0; 
+    return timeSum / 3600 || 0; 
   })
   .catch((error) => {
     console.error('Error:', error);
