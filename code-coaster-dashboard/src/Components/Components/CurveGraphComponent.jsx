@@ -12,11 +12,11 @@ function getHours(day) {
   .then(response => response.json())
   .then(data => {
     const updatedData = data.map(item => item['SUM(tiempo)']);
-    return updatedData[0]/60 || 0; // Return the first value or 0 if it doesn't exist
+    return updatedData[0]/60 || 0; 
   })
   .catch((error) => {
     console.error('Error:', error);
-    return 0; // Return 0 in case of error
+    return 0; 
   });
 }
 

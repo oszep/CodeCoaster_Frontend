@@ -1,5 +1,5 @@
 import "./LoginContainer.css";
-import React, { useState } from "react"; // useRef no es necesario ya que vamos a recolectar los datos de otra manera
+import React, { useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 
 const LoginContainer = () => {

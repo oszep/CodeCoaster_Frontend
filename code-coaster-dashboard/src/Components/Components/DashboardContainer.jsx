@@ -23,26 +23,19 @@ useEffect(() => {
     /* Mediante cargarMetrica se realiza un fetch que obtiene los usuarios ;) */
     const cargarMetricas = async () => {
         try {
-            // Retrieve the token from localStorage
             const token = localStorage.getItem('token');
             if (!token) {
                 console.log('No token found');
-                return; // Optionally handle the absence of token more explicitly
+                return;
             }
-    
-            // Set up the headers to include the token
             const headers = {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             };
-    
-            // Fetching time metrics with the Authorization header
             const responseTime = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/metricas/tiempo', { headers });
             if (!responseTime.ok) throw new Error('Failed to fetch time metrics');
             const dataTime = await responseTime.json();
             setTimeUsers(dataTime);
-    
-            // Fetching level metrics with the Authorization header
             const responseLevel = await fetch('https://3wf32sqmhl.execute-api.us-east-1.amazonaws.com/metricas/nivel', { headers });
             if (!responseLevel.ok) throw new Error('Failed to fetch level metrics');
             const dataLevel = await responseLevel.json();
